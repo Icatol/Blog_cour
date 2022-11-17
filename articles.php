@@ -73,7 +73,7 @@ if (isset($_GET['id'])) {
     $articlesManagerId = new articlesManager($bdd);
     $getArticlesId = $articlesManagerId->get($_GET['id']);
 
-    var_dump($getArticlesId);
+    //var_dump($getArticlesId);
 } else {
     $boutonForm = "Ajouter article";
     $check = "";
@@ -94,7 +94,7 @@ echo $twig->render(
         'session' => $_SESSION,
         'boutonForm' => $boutonForm,
         'check' => $check,
-        'getArticleId' => $getArticlesId
+        'getArticlesId' => $getArticlesId
     ]
 );
 
