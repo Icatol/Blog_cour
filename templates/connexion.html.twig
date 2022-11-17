@@ -1,0 +1,34 @@
+<!-- Page content-->
+<div class="container">
+    <div class="text-center mt-5">
+        <h1>A Bootstrap 5 Starter Template</h1>
+        <p class="lead">A complete project boilerplate built with Bootstrap</p>
+        <p>Bootstrap v5.1.3</p>
+    </div>
+
+    {% if session.notification %}
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-{{ session.notification.result }}" role="alert">
+                    {{ session.notification.message }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+        <form action="connexion.php" method="post" enctype="multipart/form-data">
+            <!-- Input type email-->
+            <div class="mb-3">
+                <label for="mail" class="form-label">Addresse email</label>
+                <input type="email" class="form-control" id="mail" name='email' placeholder="name@example.com">
+            </div>
+            <!-- Input type password-->
+            <div class="mb-3">
+                <label for="mdp" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="mdp" name="mdp">
+            </div>
+            <!-- Bouton type submit-->
+            <input type="submit" class="btn btn-primary" value="Envois" name="bouton">
+        </form>
+    </div>
+    </div>

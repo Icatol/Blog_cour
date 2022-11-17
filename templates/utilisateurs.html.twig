@@ -1,0 +1,35 @@
+<!-- Page content-->
+<div class="container">
+    <div class="text-center mt-5">
+        <h1>A Bootstrap 5 Starter Template</h1>
+        <p class="lead">A complete project boilerplate built with Bootstrap</p>
+        <p>Bootstrap v5.1.3</p>
+    </div>
+
+    <div class="row">
+        <form action="utilisateurs.php" method="post" enctype="multipart/form-data">
+            <!-- Titre input type text-->
+            <div class="mb-3">
+                <label for="Text" class="form-label">Nom</label>
+                <input class="form-control" type="text" name="nom" placeholder="Votre nom" aria-label="default input example" required>
+            </div>
+            <!-- Contenue textarea-->
+            <div class="mb-3">
+                <label for="Text" class="form-label">Prenom</label>
+                <input class="form-control" type="text" name="prenom" placeholder="Votre prenom" aria-label="default input example" required>
+            </div>
+            <!-- Input type email-->
+            <div class="mb-3">
+                <label for="mail" class="form-label">Adresse email</label>
+                <input type="email" class="form-control" id="mail" name='email' placeholder="name@example.com">
+            </div>
+            <!-- Input type password-->
+            <div class="mb-3">
+                <label for="mdp" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="mdp" name="mdp">
+            </div>
+            <!-- Bouton type submit-->
+            <input type="submit" class="btn btn-primary" value="Envois" name="bouton">
+        </form>
+    </div>
+</div>

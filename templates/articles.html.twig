@@ -1,0 +1,46 @@
+<!-- Page content-->
+<div class="container">
+    <div class="text-center mt-5">
+        <h1>A Bootstrap 5 Starter Template</h1>
+        <p class="lead">A complete project boilerplate built with Bootstrap</p>
+        <p>Bootstrap v5.1.3</p>
+    </div>
+
+    {% if session.notification %}
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-{{ session.notification.result }}" role="alert">
+                    {{ session.notification.message }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <form action="articles.php" method="post" enctype="multipart/form-data">
+            <!-- Id attribut hidden-->
+            <input type="text" name="id" value="{{ getArticlesId.id }}" hidden>
+            <!-- Titre input type text-->
+            <div class="mb-3">
+                <label for="Text" class="form-label">Titre de l'article</label>
+                <input class="form-control" type="text" name="titre" value="{{ getArticlesId.titre }}" placeholder="Titre de votre Article" aria-label="default input example" required>
+            </div>
+            <!-- Contenue textarea-->
+            <div class="mb-3">
+                <label for="Textarea" class="form-label">Contenue de l'article</label>
+                <textarea class="form-control" name="texte" placeholder="Contenue de votre article" id="exampleFormControlTextarea1" rows="3" required>{{ getArticlesId.texte }}</textarea>
+            </div>
+            <!-- Image type file-->
+            <div class="mb-3">
+                <label for="File" class="form-label">Image lier à l'article</label>
+                <input class="form-control" type="file" name="image" id="formFile" required>
+            </div>
+            <!-- Publiecation type checkbox-->
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="publie" value="1" {{ check }}>
+                <label class="form-check-label" for="exampleCheck1"> Article publié ? </label>
+            </div>
+            <!-- Bouton type submit-->
+            <input type="submit" class="btn btn-primary" value="{{ boutonForm }}" name="bouton">
+        </form>
+    </div>
