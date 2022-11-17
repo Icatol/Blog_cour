@@ -36,7 +36,10 @@
                         <h5 class="card-title">{{ articles.getTitre }}</h5>
                         <p class="card-text">{{ articles.getTexte }}</p>
                         <a href="#" class="btn btn-info">{{ articles.getDate }}</a>
+                        {% if sid == true %}
                         <a href="articles.php?id={{ articles.getId }}" class="btn btn-warning">Modifier</a>
+                        <a href="detailArticles.php?id={{ articles.getId }}" class="btn btn-success">Afficher</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

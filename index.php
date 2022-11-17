@@ -17,6 +17,12 @@ $loader = new \Twig\Loader\FilesystemLoader('templates/');
 $twig = new \Twig\Environment($loader, ['debug' => true]);
 $i = 1;
 $nav = "";
+if ($isConnectSid == true) {
+    $sid = true;
+} else {
+    $sid = false;
+}
+
 
 
 /*-----------------------------
@@ -73,7 +79,8 @@ echo $twig->render(
         'listArticles' => $listArticles,
         'nav' => $nav,
         'nbPages' => $nbPages,
-        'get' => $_GET
+        'get' => $_GET,
+        'sid' => $sid
     ]
 );
 
