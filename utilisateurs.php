@@ -16,7 +16,7 @@ $twig = new \Twig\Environment($loader, ['debug' => true]);
 /*-----------------------------
 --PARTIE CONDITION ET BOUCLE---
 -----------------------------*/
-/* SI BOUTON UTILISER ENTRE DANS LA CONDITION ET CREE L'UTILISATEUR */
+//Si le bouton est utilisé entre dans la condition et crée un utilisateur
 if (!empty($_POST['bouton'])) {
     $utilisateurs = new utilisateurs();
     $utilisateurs->hydrate($_POST);
@@ -43,10 +43,13 @@ if (!empty($_POST['bouton'])) {
 /*-----------------------------
 --------PARTIE AFFICHAGE-------
 -----------------------------*/
-/* AFFICHAGE TWIG */
+//AFFICHAGE TWIG
 echo $twig->render(
     'utilisateurs.html.twig',
     [
         'session' => $_SESSION
     ]
 );
+
+//SUPPRESION VARIABLE SESSION notification
+unset($_SESSION['notification']);

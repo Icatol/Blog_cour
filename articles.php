@@ -19,7 +19,7 @@ $twig = new \Twig\Environment($loader, ['debug' => true]);
 /*-----------------------------
 --PARTIE CONDITION ET BOUCLE---
 -----------------------------*/
-//Conditon si formulaire envopyer ou non
+//Conditon si formulaire envoyer ou non
 if (!empty($_POST['bouton'])) {
     $articles = new articles();
     $articles->hydrate($_POST);
@@ -38,7 +38,7 @@ if (!empty($_POST['bouton'])) {
 
     //print_r2($articlesManager);
 
-    //Si article inséré, on traite l'image
+    //Si article inséré ou modifié, on traite l'image
     if ($articlesManager->get_result() == true) {
         if ($_FILES['image']['error'] == 0) {
             if ($_POST['id'] == "") {
@@ -52,12 +52,14 @@ if (!empty($_POST['bouton'])) {
     }
     //echo ("image ajouté");
 
+    //Message de notification de success ou non
     $messageNotif = $articlesManager->get_result() == true ? "Votre article a été ajouté/modifier" : "Erreur survenue lors de l'ajout ou modification de votre article";
     $resultNotif = $articlesManager->get_result() == true ? "success" : "danger";
 
     $_SESSION['notification']['result'] = $resultNotif;
     $_SESSION['notification']['message'] = $messageNotif;
 
+    //Retour à l'accueil 
     header("Location: index.php");
     exit();
 }
@@ -87,7 +89,7 @@ if (isset($_GET['id'])) {
 /*-----------------------------
 --------PARTIE AFFICHAGE-------
 -----------------------------*/
-/* AFFICHAGE TWIG */
+//AFFICHAGE TWIG
 echo $twig->render(
     'articles.html.twig',
     [
@@ -98,5 +100,5 @@ echo $twig->render(
     ]
 );
 
-/* SUPPRESION VARIABLE SESSION notification */
+//SUPPRESION VARIABLE SESSION notification
 unset($_SESSION['notification']);

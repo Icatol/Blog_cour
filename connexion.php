@@ -16,7 +16,7 @@ $twig = new \Twig\Environment($loader, ['debug' => true]);
 /*-----------------------------
 --PARTIE CONDITION ET BOUCLE---
 -----------------------------*/
-/* CONDITION SI LE BOUTON A ETE UTILISE */
+//Condition si le bouton de connexion à été utilisé
 if (!empty($_POST['bouton'])) {
 
     //echo 'le formulaire est posté';
@@ -38,7 +38,7 @@ if (!empty($_POST['bouton'])) {
 
     //dump($isConnect);
 
-    /* SI UTILISATEUR SE CONNECTE CREE UN COOKIE  */
+    //Si l'utilisateur arrive à se connecter crée un cookie d'identification
     if ($isConnect == true) {
         $sid = md5($utilisateursEnBdd->getEmail() . time());
         //echo $sid;
@@ -51,7 +51,7 @@ if (!empty($_POST['bouton'])) {
         //dump($utilisateurManager->get_result());
     }
 
-    /* SI UTILISATEUR SE CONNECTE RETOUR A L'INDEX SINON AFFICHE UNE ERREUR */
+    //Si l'utilisateur arrive à se connecter retour au l'accueil sinon afffiche une erreur et le fait rester sur cette page
     if ($isConnect == true) {
         $_SESSION['notification']['result'] = 'success';
         $_SESSION['notification']['message'] = 'Vous êtes connecté !';
@@ -69,7 +69,7 @@ if (!empty($_POST['bouton'])) {
 /*-----------------------------
 --------PARTIE AFFICHAGE-------
 -----------------------------*/
-/* AFFICHAGE TWIG */
+//AFFICHAGE TWIG
 echo $twig->render(
     'connexion.html.twig',
     [
@@ -77,5 +77,5 @@ echo $twig->render(
     ]
 );
 
-/* SUPPRESION VARIABLE SESSION notification */
+//SUPPRESION VARIABLE SESSION notification
 unset($_SESSION['notification']);

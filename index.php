@@ -25,13 +25,13 @@ $nav = "";
 
 //var_dump($_SESSION['notification']);
 
-/* CONDITION SI VARIABLE page DANS $_GET */
+//Condition si la variable page est dans la global $_GET
 if (empty($_GET['page'])) {
     $_GET['page'] = 1;
 }
 $page = !empty($_GET['page']) ? $_GET['page'] : 1;
 
-/* CONDITION QUAND BOUTON DE RECHERCHE UTILISE  */
+//Condition si le bouton de recheche est utilisé
 if (!empty($_GET['search'])) {
     //$printValeur = ($_GET['search']);
     //$printValeur .= ("search non vide avec valeur");
@@ -65,7 +65,7 @@ if (!empty($_GET['search'])) {
 /*-----------------------------
 --------PARTIE AFFICHAGE-------
 -----------------------------*/
-/* AFFICHAGE TWIG */
+//AFFICHAGE TWIG
 echo $twig->render(
     'index.html.twig',
     [
@@ -77,5 +77,5 @@ echo $twig->render(
     ]
 );
 
-/* SUPPRESION VARIABLE SESSION notification */
+//SUPPRESION VARIABLE SESSION notification
 unset($_SESSION['notification']);
