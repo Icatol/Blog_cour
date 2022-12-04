@@ -41,11 +41,11 @@
             </div>
             <!-- Contenue textarea-->
             <div class="mb-3">
-                <label for="Textarea" class="form-label">Contenue de l'article</label>
-                <textarea class="form-control" name="texte" placeholder="Contenue de votre article" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                <label for="Textarea" class="form-label">Commentaire</label>
+                <textarea class="form-control" name="texte" placeholder="Commentaire" id="exampleFormControlTextarea1" rows="3" required></textarea>
             </div>
             <!-- Bouton type submit-->
-            <input type="submit" class="btn btn-primary" value="Commentez" name="bouton">
+            <input type="submit" class="btn btn-primary" value="Commenter" name="bouton">
         </form>
     </div>
 </div>
